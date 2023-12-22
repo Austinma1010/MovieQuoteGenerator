@@ -1,6 +1,6 @@
-var search = document.getElementById('movie-input');
-var searchBtn = document.getElementById('search-btn');
-var movieInfo = document.getElementById('movieInfo');
+var search = document.getElementById("movie-input");
+var searchBtn = document.getElementById("search-btn");
+var movieInfo = document.getElementById("movie-info");
 function DisplayMovieInfo() {
     var requestUrl = "http://www.omdbapi.com/?apikey=e8bcf7cb&t=" + search.value;
   
