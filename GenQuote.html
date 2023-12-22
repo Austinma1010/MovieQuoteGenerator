@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Search Engine</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
     <header class="hero is-danger is-small">
@@ -15,6 +15,19 @@
             <button id="search-btn" class="button is-primary is-light is-medium">Search!</button>
         </div>
     </header>
+
+    <main class="columns">
+        <section class="column">
+            <button class="button is-danger is-light">View Saved Movies</button>
+        </section>
+        <section class="column is-three-quarters card">
+            <h2 id="movie-title" class="card-header"></h2>
+            <ul id="movie-info" class="card-content"></ul>
+        </section>
    
+    </main>
+
+   
+
 </body>
 </html>
