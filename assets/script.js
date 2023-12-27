@@ -1,6 +1,6 @@
 var search = document.getElementById("movie-input");
 var searchBtn = document.getElementById("search-btn");
-var movieInfo = document.getElementById("movie-info");
+var movieInfo = document.getElementById("movieInfo");
 function DisplayMovieInfo() {
     var requestUrl = "http://www.omdbapi.com/?apikey=e8bcf7cb&t=" + search.value;
   
@@ -19,7 +19,42 @@ function DisplayMovieInfo() {
       mainActors.textContent = "Main Cast: " + data.Actors;
       revenue.textContent = "Box Office Revenue: " + data.BoxOffice;
       plot.textContent = "Plot Summary: " + data.Plot;
+      showWiki();
   }) }
 
 
 searchBtn.addEventListener('click', DisplayMovieInfo);
+
+function showWiki() {
+  var requestUrl = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + search.value + " movie&limit=1&format=json&formatversion=2";
+
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      if (data[3].includes('https')) {
+        
+      var wiki = document.getElementById('wiki-btn');
+      wiki.setAttribute('href', data[3]);
+  
+      return;
+    }
+      else { 
+        var requestUrl2 = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + search.value + "&limit=1&format=json&formatversion=2";
+
+  fetch(requestUrl2)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      
+      wiki = document.getElementById('wiki-btn');
+      wiki.setAttribute('href', data[3]);
+       
+      return;
+})
+
+      }
+})
+}
