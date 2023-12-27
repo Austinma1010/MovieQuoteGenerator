@@ -1,3 +1,4 @@
+
 :root {
     --font: 'Poppins', sans-serif;
 
@@ -18,5 +19,21 @@ display: flex;
 
 .hero button {
     width: 500px;
+}
+
+=======
+/* color scheme */
+
+.title{
+text-align: center;
+}
+
+.movie-input{
+  
+}
+
+#search-btn{
+    
+width:100%;
 }
 
