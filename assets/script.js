@@ -1,6 +1,7 @@
 var search = document.getElementById("movie-input");
 var searchBtn = document.getElementById("search-btn");
 var movieInfo = document.getElementById("movieInfo");
+var clearSavedBtn = document.getElementById("clear-saved")
 
 function DisplayMovieInfo() {
     var requestUrl = "http://www.omdbapi.com/?apikey=e8bcf7cb&t=" + search.value;
@@ -69,3 +70,7 @@ function showWiki() {
 })
 }
 
+function clearSavedMovies(event) {
+  event.preventDefault;
+  localStorage.removeItem("movieName");
+}
