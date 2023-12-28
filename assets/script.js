@@ -1,8 +1,10 @@
 var search = document.getElementById("movie-input");
 var searchBtn = document.getElementById("search-btn");
 var movieInfo = document.getElementById("movieInfo");
+
 function DisplayMovieInfo() {
     var requestUrl = "http://www.omdbapi.com/?apikey=e8bcf7cb&t=" + search.value;
+
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -22,9 +24,16 @@ function DisplayMovieInfo() {
       movieInfo.setAttribute('class', 'movieStyle');
       showWiki();
   })
+
 }
 
-searchBtn.addEventListener('click', DisplayMovieInfo);
+searchBtn.addEventListener('click', function() {
+  if (search.value == 0) {
+    return;
+  } else {
+    DisplayMovieInfo();
+  }
+});
 
 function showWiki() {
   var requestUrl = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + search.value + " movie&limit=1&format=json&formatversion=2";
@@ -59,3 +68,4 @@ function showWiki() {
       }
 })
 }
+
