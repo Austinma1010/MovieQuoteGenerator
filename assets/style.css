@@ -23,24 +23,13 @@
 .saved-search {
     display: flex;
     flex-direction: column;
+    font-family: var(--font);
 }
 
 .saved-search button {
     margin: 10px;
     width: 200px;
-}
-
-/* color scheme */
-
-.movieStyle {
-    padding: 15px;
-    border: 10px #f14668 solid;
-    border-radius: 0px 0px 10px 10px;
-    color: white;
-    background-color: #f14668;
-    font-size: 20px;
-    
-    
+    font-family: var(--font);
 }
 
 .movieTitle {
