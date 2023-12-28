@@ -15,10 +15,12 @@ function DisplayMovieInfo() {
       var revenue = movieInfo.appendChild(document.createElement('li'));
       var plot = movieInfo.appendChild(document.createElement('li'));
       title.textContent = "Title: " + data.Title;
+      title.setAttribute('class', 'movieTitle');
       releaseDate.textContent = "Release Date: " + data.Released;
       mainActors.textContent = "Main Cast: " + data.Actors;
       revenue.textContent = "Box Office Revenue: " + data.BoxOffice;
       plot.textContent = "Plot Summary: " + data.Plot;
+      movieInfo.setAttribute('class', 'movieStyle');
       showWiki();
   }) }
 
