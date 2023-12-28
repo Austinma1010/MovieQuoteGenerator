@@ -1,39 +1,35 @@
-
 :root {
-    --font: 'Poppins', sans-serif;
-
+  --font: "Poppins", sans-serif;
 }
 .hero {
-    font-family: var(--font);
-    align-items: center;
-    text-align: center;
+  font-family: var(--font);
+  align-items: center;
+  text-align: center;
 }
 
 .hero input {
-    width: 500px;
-font-family: var(--font);
-display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
+  width: 500px;
+  font-family: var(--font);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
 }
 
 .hero button {
-    width: 500px;
+  width: 500px;
+  font-family: var(--font);
 }
 
+.saved-search {
+    display: flex;
+    flex-direction: column;
+}
+
+.saved-search button {
+    margin: 10px;
+    width: 200px;
+}
 =======
 /* color scheme */
 
-.title{
-text-align: center;
-}
-
-.movie-input{
-  
-}
-
-#search-btn{
-    
-width:100%;
-}
 
