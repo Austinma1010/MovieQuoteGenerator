@@ -3,7 +3,6 @@ var searchBtn = document.getElementById("search-btn");
 var movieInfo = document.getElementById("movieInfo");
 function DisplayMovieInfo() {
     var requestUrl = "http://www.omdbapi.com/?apikey=e8bcf7cb&t=" + search.value;
-  
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -20,8 +19,8 @@ function DisplayMovieInfo() {
       revenue.textContent = "Box Office Revenue: " + data.BoxOffice;
       plot.textContent = "Plot Summary: " + data.Plot;
       showWiki();
-  }) }
-
+  })
+}
 
 searchBtn.addEventListener('click', DisplayMovieInfo);
 

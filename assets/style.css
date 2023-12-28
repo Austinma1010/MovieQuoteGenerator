@@ -23,13 +23,12 @@
 .saved-search {
     display: flex;
     flex-direction: column;
+    font-family: var(--font);
 }
 
 .saved-search button {
     margin: 10px;
     width: 200px;
+    font-family: var(--font);
 }
-=======
-/* color scheme */
-
 
