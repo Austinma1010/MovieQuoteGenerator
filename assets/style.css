@@ -32,6 +32,16 @@
     font-family: var(--font);
 }
 
+.movieStyle {
+  padding: 15px;
+  border: 10px #f14668 solid;
+  border-radius: 0px 0px 10px 10px;
+  color: white;
+  background-color: #f14668;
+  font-size: 20px;
+  
+  
+}
 .movieTitle {
     font-weight: bold;
     align-self: center;
