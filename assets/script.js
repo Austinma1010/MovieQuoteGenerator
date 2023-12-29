@@ -73,4 +73,4 @@ function showWiki() {
 function clearSavedMovies(event) {
   event.preventDefault;
   localStorage.removeItem("movieName");
-}
+};
