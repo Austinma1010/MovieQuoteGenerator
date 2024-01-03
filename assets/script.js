@@ -1,6 +1,7 @@
 var search = document.getElementById("movie-input");
 var searchBtn = document.getElementById("search-btn");
 var movieInfo = document.getElementById("movieInfo");
+var movieNameArray = JSON.parse(localStorage.getItem('movieName')) || [];
 function DisplayMovieInfo() {
     var requestUrl = "http://www.omdbapi.com/?apikey=e8bcf7cb&t=" + search.value;
   
@@ -58,3 +59,20 @@ function showWiki() {
       }
 })
 }
+
+
+
+
+//save movie title to local storage
+$('#save-btn').on('click', function(){
+  var newInput = $('#movie-input').val();
+  if (!movieNameArray.includes(newInput)){
+    movieNameArray.push(newInput)
+    localStorage.setItem('movieName',JSON.stringify(movieNameArray))
+  }
+
+});
+
+//view saved movies via dropdown
+
+

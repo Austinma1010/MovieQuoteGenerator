@@ -14,18 +14,22 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
       rel="stylesheet"
     />
+
+
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
     <header class="hero is-danger is-small">
       <div class="hero-body">
         <h1 class="title is-1">Search a Movie!</h1>
+        <!--Movie Search Bar-->
         <input
           id="movie-input"
           class="input is-medium is-primary"
           type="text"
           placeholder="Movie Title"
         />
+        <!--Movie Search Button-->
         <button id="search-btn" class="button is-primary is-light is-medium">
           Search!
         </button>
@@ -36,6 +40,7 @@
       <section class="column">
         <div class="dropdown is-active">
           <div class="dropdown-trigger">
+            <!--View Saved Movie Button-->
             <button
               class="button"
               aria-haspopup="true"
@@ -47,6 +52,7 @@
               </span>
             </button>
           </div>
+          <!--Saved Movies Dropdown Menu-->
           <div class="dropdown-menu" id="dropdown-menu" role="menu">
             <div class="dropdown-content">
               <a href="#" class="dropdown-item"> Dropdown item </a>
@@ -64,15 +70,22 @@
       <section class="column is-three-quarters">
         <h2 id="movie-title"></h2>
         <ul id="movieInfo"></ul>
-        <button id="search-btn" class="button is-primary is-light is-medium">
+        <!--Save Movie Button-->
+        <button id="save-btn" class="button is-primary is-light is-medium">
           Save Movie
         </button>
+        <!--More Info Button-->
         <a id="wiki-btn"><button id="search-btn" class="button is-primary is-light is-medium">
           More Info!
         </button></a>
       </section>
     </main>
 
+        <!--Added JQUERY CDN-->
+        <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
     <script src="./assets/script.js"></script>
   </body>
 </html>
