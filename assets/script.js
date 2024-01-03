@@ -1,6 +1,8 @@
 var search = document.getElementById("movie-input");
 var searchBtn = document.getElementById("search-btn");
 var movieInfo = document.getElementById("movieInfo");
+var dropDownEl = document.getElementById("drop-down");
+//var viewSavedbtn = document.getElementById("view-saved")
 
 var movieNameArray = JSON.parse(localStorage.getItem('movieName')) || [];
 
@@ -81,15 +83,27 @@ $('#save-btn').on('click', function(){
   var newInput = $('#movie-input').val();
   if (!movieNameArray.includes(newInput)){
     movieNameArray.push(newInput)
-    localStorage.setItem('movieName',JSON.stringify(movieNameArray))
+    localStorage.setItem('movieName',JSON.stringify(movieNameArray));
   }
-
+  dropDownEl.innerHTML = "";
+  viewSaved();
 });
-
 //view saved movies via dropdown
+function viewSaved (){
+ // $('#dropdown-menu4').empty();
+  for (var i=0; i < movieNameArray.length; i++){
+  
+    var savedMovieTit = dropDownEl.appendChild(document.createElement('li'));
+    savedMovieTit.textContent = movieNameArray[i];
+    console.log(movieNameArray[i]);
+  }
+}
+viewSaved();
+
 
 function clearSavedMovies(event) {
   event.preventDefault;
   localStorage.removeItem("movieName");
+  viewSaved();
 };
 
