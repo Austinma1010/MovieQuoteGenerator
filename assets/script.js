@@ -17,6 +17,7 @@ function DisplayMovieInfo() {
       return response.json();
     })
     .then(function (data) {
+      movieInfo.innerHTML = "";
       var title = movieInfo.appendChild(document.createElement('li'));
       var releaseDate = movieInfo.appendChild(document.createElement('li'));
       var mainActors = movieInfo.appendChild(document.createElement('li'));
@@ -24,7 +25,6 @@ function DisplayMovieInfo() {
       var plot = movieInfo.appendChild(document.createElement('li'));
       title.textContent = "Title: " + data.Title;
       title.setAttribute('class', 'movieTitle');
-      
       releaseDate.textContent = "Release Date: " + data.Released;
       mainActors.textContent = "Main Cast: " + data.Actors;
       revenue.textContent = "Box Office Revenue: " + data.BoxOffice;
@@ -32,10 +32,10 @@ function DisplayMovieInfo() {
       movieInfo.setAttribute('class', 'movieStyle');
       showWiki();
   })
-
 }
 
 searchBtn.addEventListener('click', function() {
+
   if (search.value == 0) {
     return;
   } else {
