@@ -7,8 +7,8 @@ var movieNameArray = JSON.parse(localStorage.getItem('movieName')) || [];
 var clearSavedBtn = document.getElementById("clear-saved")
 
 
-function DisplayMovieInfo() {
-    var requestUrl = "http://www.omdbapi.com/?apikey=e8bcf7cb&t=" + search.value;
+function DisplayMovieInfo(name) {
+    var requestUrl = "http://www.omdbapi.com/?apikey=e8bcf7cb&t=" + name;
 
   fetch(requestUrl)
     .then(function (response) {
@@ -37,7 +37,8 @@ searchBtn.addEventListener('click', function() {
   if (search.value == 0) {
     return;
   } else {
-    DisplayMovieInfo();
+
+    DisplayMovieInfo(search.value);
   }
 });
 
@@ -93,8 +94,13 @@ function viewSaved (){
   
     var savedMovieTit = dropDownEl.appendChild(document.createElement('li'));
     savedMovieTit.textContent = movieNameArray[i];
-    console.log(movieNameArray[i]);
+    savedMovieTit.addEventListener('click', clickSaved);
+    
   }
+}
+
+function clickSaved() {
+  DisplayMovieInfo(this.textContent);
 }
 viewSaved();
 
