@@ -1,39 +1,65 @@
-
 :root {
-    --font: 'Poppins', sans-serif;
-
+  --font: "Poppins", sans-serif;
 }
 .hero {
-    font-family: var(--font);
-    align-items: center;
-    text-align: center;
+  font-family: var(--font);
+  align-items: center;
+  text-align: center;
 }
 
 .hero input {
-    width: 500px;
-font-family: var(--font);
-display: flex;
-    flex-direction: column;
-    margin-bottom: 5px;
+  width: 500px;
+  font-family: var(--font);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
 }
 
 .hero button {
-    width: 500px;
+  width: 500px;
+  font-family: var(--font);
 }
 
-=======
-/* color scheme */
-
-.title{
-text-align: center;
+.saved-search {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font);
 }
 
-.movie-input{
-  
+.saved-search button {
+    margin: 10px;
+    width: 400px;
+    font-family: var(--font);
 }
+
+.movieStyle {
+  padding: 15px;
+  border: 10px #f14668 solid;
+  border-radius: 0px 0px 10px 10px;
+  color: white;
+  background-color: #f14668;
+  font-size: 20px;
+}
+
 
 .button{
     
 width:100%;
 }
+.movieTitle {
+    font-weight: bold;
+    align-self: center;
+    color: white;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 5px white solid;
+    text-align: center;
+    font-size: 40px;
 
+}
+
+.search-card button {
+  font-family: var(--font);
+  width: 700px;
+
+}

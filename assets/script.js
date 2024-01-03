@@ -1,10 +1,15 @@
 var search = document.getElementById("movie-input");
 var searchBtn = document.getElementById("search-btn");
 var movieInfo = document.getElementById("movieInfo");
+
 var movieNameArray = JSON.parse(localStorage.getItem('movieName')) || [];
+
+var clearSavedBtn = document.getElementById("clear-saved")
+
+
 function DisplayMovieInfo() {
     var requestUrl = "http://www.omdbapi.com/?apikey=e8bcf7cb&t=" + search.value;
-  
+
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -16,15 +21,24 @@ function DisplayMovieInfo() {
       var revenue = movieInfo.appendChild(document.createElement('li'));
       var plot = movieInfo.appendChild(document.createElement('li'));
       title.textContent = "Title: " + data.Title;
+      title.setAttribute('class', 'movieTitle');
       releaseDate.textContent = "Release Date: " + data.Released;
       mainActors.textContent = "Main Cast: " + data.Actors;
       revenue.textContent = "Box Office Revenue: " + data.BoxOffice;
       plot.textContent = "Plot Summary: " + data.Plot;
+      movieInfo.setAttribute('class', 'movieStyle');
       showWiki();
-  }) }
+  })
 
+}
 
-searchBtn.addEventListener('click', DisplayMovieInfo);
+searchBtn.addEventListener('click', function() {
+  if (search.value == 0) {
+    return;
+  } else {
+    DisplayMovieInfo();
+  }
+});
 
 function showWiki() {
   var requestUrl = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + search.value + " movie&limit=1&format=json&formatversion=2";
@@ -61,8 +75,6 @@ function showWiki() {
 }
 
 
-
-
 //save movie title to local storage
 $('#save-btn').on('click', function(){
   var newInput = $('#movie-input').val();
@@ -75,4 +87,8 @@ $('#save-btn').on('click', function(){
 
 //view saved movies via dropdown
 
+function clearSavedMovies(event) {
+  event.preventDefault;
+  localStorage.removeItem("movieName");
+};
 

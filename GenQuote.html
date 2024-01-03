@@ -37,8 +37,8 @@
     </header>
 
     <main class="columns">
-      <section class="column">
-        <div class="dropdown is-active">
+      <section class="column saved-search">
+        <div class="dropdown is-hoverable">
           <div class="dropdown-trigger">
             <!--View Saved Movie Button-->
             <button
@@ -47,6 +47,8 @@
               aria-controls="dropdown-menu"
             >
               <span>View Saved Movies</span>
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+              <span>View Saved Movies!</span>
               <span class="icon is-small">
                 <i class="fas fa-angle-down" aria-hidden="true"></i>
               </span>
@@ -54,20 +56,17 @@
           </div>
           <!--Saved Movies Dropdown Menu-->
           <div class="dropdown-menu" id="dropdown-menu" role="menu">
+          <div class="dropdown-menu" id="dropdown-menu4" role="menu">
             <div class="dropdown-content">
-              <a href="#" class="dropdown-item"> Dropdown item </a>
-              <a class="dropdown-item"> Other dropdown item </a>
-              <a href="#" class="dropdown-item is-active">
-                Active dropdown item
-              </a>
-              <a href="#" class="dropdown-item"> Other dropdown item </a>
-              <hr class="dropdown-divider" />
-              <a href="#" class="dropdown-item"> With a divider </a>
+              <div class="dropdown-item">
+                <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+              </div>
             </div>
           </div>
         </div>
+        <button id="clear-saved" class="button">Clear Saved Movies</button>
       </section>
-      <section class="column is-three-quarters">
+      <section class="column is-three-quarters search-card">
         <h2 id="movie-title"></h2>
         <ul id="movieInfo"></ul>
         <!--Save Movie Button-->
@@ -76,6 +75,9 @@
         </button>
         <!--More Info Button-->
         <a id="wiki-btn"><button id="search-btn" class="button is-primary is-light is-medium">
+
+       <a id="wiki-btn"> <button id="wiki-btn" class="button is-primary is-light is-medium">
+
           More Info!
         </button></a>
       </section>
