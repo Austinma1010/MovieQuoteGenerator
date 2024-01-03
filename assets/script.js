@@ -28,7 +28,7 @@ function DisplayMovieInfo(name) {
       revenue.textContent = "Box Office Revenue: " + data.BoxOffice;
       plot.textContent = "Plot Summary: " + data.Plot;
       movieInfo.setAttribute('class', 'movieStyle');
-      showWiki();
+      showWiki(name);
   })
 }
 
@@ -42,8 +42,8 @@ searchBtn.addEventListener('click', function() {
   }
 });
 
-function showWiki() {
-  var requestUrl = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + search.value + " movie&limit=1&format=json&formatversion=2";
+function showWiki(name) {
+  var requestUrl = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + name + " movie&limit=1&format=json&formatversion=2";
 
   fetch(requestUrl)
     .then(function (response) {
@@ -58,7 +58,7 @@ function showWiki() {
       return;
     }
       else { 
-        var requestUrl2 = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + search.value + "&limit=1&format=json&formatversion=2";
+        var requestUrl2 = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + name + "&limit=1&format=json&formatversion=2";
 
   fetch(requestUrl2)
     .then(function (response) {
