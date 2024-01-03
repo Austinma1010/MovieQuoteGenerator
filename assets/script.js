@@ -3,9 +3,7 @@ var searchBtn = document.getElementById("search-btn");
 var movieInfo = document.getElementById("movieInfo");
 var dropDownEl = document.getElementById("drop-down");
 //var viewSavedbtn = document.getElementById("view-saved")
-
 var movieNameArray = JSON.parse(localStorage.getItem('movieName')) || [];
-
 var clearSavedBtn = document.getElementById("clear-saved")
 
 
@@ -101,9 +99,8 @@ function viewSaved (){
 viewSaved();
 
 
-function clearSavedMovies(event) {
-  event.preventDefault;
+clearSavedBtn.addEventListener("click", function(event) {
+  event.preventDefault();
   localStorage.removeItem("movieName");
-  viewSaved();
-};
-
+  dropDownEl.textContent = "";
+});
