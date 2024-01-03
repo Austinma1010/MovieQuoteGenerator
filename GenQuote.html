@@ -40,17 +40,18 @@
       <section class="column saved-search">
         <div class="dropdown is-hoverable">
           <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+            <!--View Saved Movie Button-->
+            <button id = "view-savedbtn" class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
               <span>View Saved Movies!</span>
               <span class="icon is-small">
                 <i class="fas fa-angle-down" aria-hidden="true"></i>
               </span>
             </button>
+            <!--Drop Down Menu-->
           </div>
           <div class="dropdown-menu" id="dropdown-menu4" role="menu">
             <div class="dropdown-content">
-              <div class="dropdown-item">
-                <p>You can insert <strong>any type of content</strong> within the dropdown menu.</p>
+              <div id = "drop-down" class="dropdown-item">
               </div>
             </div>
           </div>
@@ -60,7 +61,8 @@
       <section class="column is-three-quarters search-card">
         <h2 id="movie-title"></h2>
         <ul id="movieInfo"></ul>
-        <button id="search-btn" class="button is-primary is-light is-medium">
+        <!--Save Movie Button-->
+        <button id="save-btn" class="button is-primary is-light is-medium">
           Save Movie
         </button>
        <a id="wiki-btn"> <button id="wiki-btn" class="button is-primary is-light is-medium">
