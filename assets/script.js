@@ -93,6 +93,7 @@ function viewSaved (){
   for (var i=0; i < movieNameArray.length; i++){
   
     var savedMovieTit = dropDownEl.appendChild(document.createElement('li'));
+    savedMovieTit.setAttribute('class', "dropDownListEl")
     savedMovieTit.textContent = movieNameArray[i];
     savedMovieTit.addEventListener('click', clickSaved);
     
@@ -108,5 +109,6 @@ viewSaved();
 clearSavedBtn.addEventListener("click", function(event) {
   event.preventDefault();
   localStorage.removeItem("movieName");
+  movieNameArray = [];
   dropDownEl.textContent = "";
 });
