@@ -1,6 +1,7 @@
 :root {
   --font: "Poppins", sans-serif;
 }
+
 .hero {
   font-family: var(--font);
   align-items: center;
@@ -42,10 +43,10 @@
 }
 
 
-.button{
-    
+.button {
 width:100%;
 }
+
 .movieTitle {
     font-weight: bold;
     align-self: center;
@@ -55,7 +56,6 @@ width:100%;
     border-bottom: 5px white solid;
     text-align: center;
     font-size: 40px;
-
 }
 
 .search-card button {
@@ -64,8 +64,13 @@ width:100%;
 
 }
 
-.dropDownListEl {
+#drop-down {
   list-style: none;
-  margin: 5px;
   cursor: pointer;
+  font-size: 18px;
+  color: #f14668;
+  text-align: center;
+  font-weight: 600;
+  width: 400px;
+  margin-left: 10px;
 }
