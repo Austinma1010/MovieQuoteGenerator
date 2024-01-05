@@ -15,7 +15,6 @@
       rel="stylesheet"
     />
 
-
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
@@ -41,7 +40,12 @@
         <div class="dropdown is-hoverable">
           <div class="dropdown-trigger">
             <!--View Saved Movie Button-->
-            <button id = "view-savedbtn" class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+            <button
+              id="view-savedbtn"
+              class="button"
+              aria-haspopup="true"
+              aria-controls="dropdown-menu4"
+            >
               <span>View Saved Movies!</span>
               <span class="icon is-small">
                 <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -51,8 +55,7 @@
           </div>
           <div class="dropdown-menu" id="dropdown-menu4" role="menu">
             <div class="dropdown-content">
-              <div id = "drop-down" class="dropdown-item">
-              </div>
+              <div id="drop-down" class="dropdown-item"></div>
             </div>
           </div>
         </div>
@@ -65,17 +68,20 @@
         <button id="save-btn" class="button is-primary is-light is-medium">
           Save Movie
         </button>
-       <a id="wiki-btn"> <button id="wiki-btn" class="button is-primary is-light is-medium">
-          More Info!
-        </button></a>
+        <a id="wiki-btn">
+          <button id="wiki-btn" class="button is-primary is-light is-medium">
+            More Info!
+          </button></a
+        >
       </section>
     </main>
 
-        <!--Added JQUERY CDN-->
-        <script
-        src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-        crossorigin="anonymous"></script>
+    <!--Added JQUERY CDN-->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/script.js"></script>
   </body>
 </html>
