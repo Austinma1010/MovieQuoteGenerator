@@ -7,7 +7,7 @@ var movieNameArray = JSON.parse(localStorage.getItem("movieName")) || [];
 var clearSavedBtn = document.getElementById("clear-saved");
 
 function DisplayMovieInfo(name) {
-  var requestUrl = "http://www.omdbapi.com/?apikey=e8bcf7cb&t=" + name;
+  var requestUrl = "https://www.omdbapi.com/?apikey=e8bcf7cb&t=" + name;
 
   fetch(requestUrl)
     .then(function (response) {
