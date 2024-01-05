@@ -22,15 +22,15 @@
 }
 
 .saved-search {
-    display: flex;
-    flex-direction: column;
-    font-family: var(--font);
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font);
 }
 
 .saved-search button {
-    margin: 10px;
-    width: 400px;
-    font-family: var(--font);
+  margin: 10px;
+  width: 400px;
+  font-family: var(--font);
 }
 
 .movieStyle {
@@ -42,26 +42,24 @@
   font-size: 20px;
 }
 
-
 .button {
-width:100%;
+  width: 100%;
 }
 
 .movieTitle {
-    font-weight: bold;
-    align-self: center;
-    color: white;
-    margin-bottom: 20px;
-    padding: 10px;
-    border-bottom: 5px white solid;
-    text-align: center;
-    font-size: 40px;
+  font-weight: bold;
+  align-self: center;
+  color: white;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 5px white solid;
+  text-align: center;
+  font-size: 40px;
 }
 
 .search-card button {
   font-family: var(--font);
   width: 700px;
-
 }
 
 #drop-down {
@@ -73,4 +71,10 @@ width:100%;
   font-weight: 600;
   width: 400px;
   margin-left: 10px;
+  margin-bottom: 0;
+  background-color: #ebfffc;
+}
+
+.dropdown-content {
+  background-color: #ebfffc;
 }
