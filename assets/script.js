@@ -6,56 +6,56 @@ var dropDownEl = document.getElementById("drop-down");
 var movieNameArray = JSON.parse(localStorage.getItem("movieName")) || [];
 var clearSavedBtn = document.getElementById("clear-saved");
 
-function DisplayMovieInfo(name) {
-  var requestUrl = "https://www.omdbapi.com/?apikey=e8bcf7cb&t=" + name;
+function DisplayMovieInfo(name) { // Pulls OMBD info for whatever movie name is entered as an argument
+  var requestUrl = "https://www.omdbapi.com/?apikey=e8bcf7cb&t=" + name; // Appends movie name into API URL
 
-  fetch(requestUrl)
+  fetch(requestUrl) // creates a fetch request for OMBD info
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      movieInfo.innerHTML = "";
-      var title = movieInfo.appendChild(document.createElement("li"));
-      var releaseDate = movieInfo.appendChild(document.createElement("li"));
-      var mainActors = movieInfo.appendChild(document.createElement("li"));
-      var revenue = movieInfo.appendChild(document.createElement("li"));
-      var plot = movieInfo.appendChild(document.createElement("li"));
-      title.textContent = "Title: " + data.Title;
-      title.setAttribute("class", "movieTitle");
-      releaseDate.textContent = "Release Date: " + data.Released;
-      mainActors.textContent = "Main Cast: " + data.Actors;
-      revenue.textContent = "Box Office Revenue: " + data.BoxOffice;
-      plot.textContent = "Plot Summary: " + data.Plot;
-      movieInfo.setAttribute("class", "movieStyle");
-      showWiki(name);
+      movieInfo.innerHTML = ""; // clears past search data from movie info section
+      var title = movieInfo.appendChild(document.createElement("li")); // creates a list element that stores the movies title
+      var releaseDate = movieInfo.appendChild(document.createElement("li")); // creates a list element that stores the movies release date
+      var mainActors = movieInfo.appendChild(document.createElement("li")); // creates a list element that stores the movies main actors
+      var revenue = movieInfo.appendChild(document.createElement("li")); // creates a list element that stores the movies revenue
+      var plot = movieInfo.appendChild(document.createElement("li")); // creates a list element that stores the movies plot
+      title.textContent = "Title: " + data.Title; // adds text to title list element
+      title.setAttribute("class", "movieTitle"); // adds styling to title list element
+      releaseDate.textContent = "Release Date: " + data.Released; // adds text to release date list element
+      mainActors.textContent = "Main Cast: " + data.Actors; // adds text to main actors list element
+      revenue.textContent = "Box Office Revenue: " + data.BoxOffice; // adds text to revenue list element
+      plot.textContent = "Plot Summary: " + data.Plot; // adds text to plot list element
+      movieInfo.setAttribute("class", "movieStyle"); // adds styling to entire list
+      showWiki(name); // calls the funtion showWiki
     });
 }
 
-searchBtn.addEventListener("click", function () {
-  if (search.value == 0) {
+searchBtn.addEventListener("click", function () { // males 'search' button clickable
+  if (search.value == 0) { // checks if search bar is blank
     return;
   } else {
     DisplayMovieInfo(search.value);
   }
 });
 
-function showWiki(name) {
+function showWiki(name) { // adds wiki link to the 'More info!' button
   var requestUrl =
     "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" +
     name +
     " movie&limit=1&format=json&formatversion=2";
 
-  fetch(requestUrl)
+  fetch(requestUrl) // makes fetch request to wiki API
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      if (data[3].includes("https")) {
-        var wiki = document.getElementById("wiki-btn");
-        wiki.setAttribute("href", data[3]);
+      if (data[3].includes("https")) { // checks to make sure response is a link
+        var wiki = document.getElementById("wiki-btn"); // grabs 'More Info!' button element
+        wiki.setAttribute("href", data[3]); // adds a link to the button
 
         return;
-      } else {
+      } else { // Makes a less specific request
         var requestUrl2 =
           "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" +
           name +
@@ -75,36 +75,36 @@ function showWiki(name) {
     });
 }
 
-//save movie title to local storage
-$("#save-btn").on("click", function () {
-  var newInput = $("#movie-input").val();
-  if (!movieNameArray.includes(newInput)) {
-    movieNameArray.push(newInput);
-    localStorage.setItem("movieName", JSON.stringify(movieNameArray));
+
+$("#save-btn").on("click", function () { //save movie title to local storage
+  var newInput = $("#movie-input").val(); // grabs user input
+  if (!movieNameArray.includes(newInput)) { // checks if movie has already been saved
+    movieNameArray.push(newInput); // adds movie name to the list of saved movies
+    localStorage.setItem("movieName", JSON.stringify(movieNameArray)); // saves list to local storage
   }
-  dropDownEl.innerHTML = "";
-  viewSaved();
+  dropDownEl.innerHTML = ""; // clears dropdown so that its refreshed with every save
+  viewSaved(); // calls viewSaved function 
 });
-//view saved movies via dropdown
-function viewSaved (){
- // $('#dropdown-menu4').empty();
-  for (var i=0; i < movieNameArray.length; i++){
+
+function viewSaved (){ // shows saved movies in dropdown menu
+
+  for (var i=0; i < movieNameArray.length; i++){ // for loop cycles through all elements of list in local storage
   
-    var savedMovieTit = dropDownEl.appendChild(document.createElement('li'));
-    savedMovieTit.setAttribute('class', "dropDownListEl")
-    savedMovieTit.textContent = movieNameArray[i];
-    savedMovieTit.addEventListener("click", clickSaved);
+    var savedMovieTit = dropDownEl.appendChild(document.createElement('li')); // creates list element to display saved movie
+    savedMovieTit.setAttribute('class', "dropDownListEl"); // adds styling to saved movie list element
+    savedMovieTit.textContent = movieNameArray[i]; // adds text to list element
+    savedMovieTit.addEventListener("click", clickSaved); // Makes saved movie titles clickable
   }
 }
 
-function clickSaved() {
-  DisplayMovieInfo(this.textContent);
+function clickSaved() { // Makes clicking on saved movies show the info for that movie
+  DisplayMovieInfo(this.textContent); // grabs text content of clicked element and submits it to DisplayMovieInfo funtion as an argument
 }
 viewSaved();
 
-clearSavedBtn.addEventListener("click", function (event) {
+clearSavedBtn.addEventListener("click", function (event) { // clears out saved movies
   event.preventDefault();
-  localStorage.removeItem("movieName");
-  movieNameArray = [];
-  dropDownEl.textContent = "";
+  localStorage.removeItem("movieName"); // removes saved movies list from local storage
+  movieNameArray = []; // emptys out saved movie array
+  dropDownEl.textContent = ""; // removes dropdown list elements
 });
